@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+
+
+<h1>Welcome!</h1>
+<h5>Key Information:</h5>
+<p style="margin-left: 7em; margin-right: 7em;">
+    You are invited to participate in this study that will contribute to PhD thesis research taking place at King's College London.
+    Before you decide whether you want to take part, it is important for you to understand why the research is being done and what your participation will involve. 
+    <br><i>Please take the time to read the following information carefully and discuss it with others if you wish. </i>
+    <br>
+    <br>
+    <b>What is the purpose of the study?</b>
+    The goal of the study is to understand how data visualization is percieved by adult individuals (18 years and older) and
+    how information visualization can be improved depending on individual differences. 
+    <br>
+    <br>
+    <b>What will happen if I take part?</b>
+    After filling in a demographic questionnaire, you will begin par one, where you will play a game while observing
+    visualizations. You will then be asked to interact with the visual to recall what you saw.  
+    In part two, you will be asked to play a paper folding game, and finally asked to rate the difficulty of each part.
+    <br>
+    <br>
+    <b>Duration and Privacy:</b>
+    The survey will take you approximately 15 minutes to complete. Your responses will be kept completely anonymous and we will note store any information that
+    could be used to establish your identity. Any data we collect will be stored securely on our servers. Demographic information gathering is for research analysis and will
+    not be identifiable. We take your security very seriously. 
+    <br>
+    <br>
+    <b>Do I have to take part?</b>
+    Participation is completely voluntary. You should only take part if you want to, and choosing not to take part will not disadvantage you in any way. 
+    You are free to withdraw at any point during the completion of the survey, without having to give a reason by simply not submitting the survey.
+    We believe this study presents no risks to you. Once you submit the survey, it will no longer be possible to withdraw from the study because the data will be anonymous.
+    <br>
+    <br>
+    <b>Contact Information:</b>
+    If you have any questions, require more information about this study, or think you have been
+    harmed by participating please contact the primary researcher using the following contact details: 
+    <br>
+    <i>Sara Tandon,
+     Department of Informatics,
+     King’s College London,
+     Bush House – 30 Aldwych,
+     London WC2B 4BG, 
+     United Kingdom </i>
+    <br>Email: sara.tandon@kcl.ac.uk
+    
+    <br>
+    <br>
+    <b>What if I have further questions, or if something goes wrong?</b>
+    If this study has harmed you in any way or if you wish to make a complaint about the conduct of the 
+    study you can contact KCL using the details below for further advice and information: 
+    <br>
+    <i>Dr.Rita Borgo,
+    Department of Informatics,
+    King’s College London,  
+    Bush House – 30 Aldwych, 
+    London WC2B 4BG, 
+    United Kingdom </i>
+    <br>Email: rita.borgo@kcl.ac.uk
+    <br>
+    Thank you!</p>
+   
+
+
+
+<h5 style="margin-right: 7em; margin-left: 7em;">By checking the box, you are confirming that you are above the age of 18, have read and understood the above
+    information, and you agree to take part in the research. Your participation is voluntary and you are free to 
+leave at any time by simply closing the web broswer. </h5>
+
+
+<p id="next_btn" style="padding: 5px;" type=button><a href="{{ url_for('dems') }}"><button class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom">Next</button></a></p>
+
+
+<label for="myCheck" style="font-size: larger; pointer-events: none;">I agree</label>
+    <span class="asteriskField" style="font-size: larger;">
+        *
+    </span>
+<input type="checkbox" id="myCheck" onclick="myFunction()"/>
+
+
+
+<script>
+    $(document).ready(function() {
+    
+    var $button= $("#next_btn").hide(),
+        $cbs = $('input[id="myCheck"]').click(function() {
+            $button.toggle( $cbs.is(":checked") );
+        });
+
+});
+</script>
+
+
+
+{% endblock %}

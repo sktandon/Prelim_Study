@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}
+PODS KCL Survey
+{% endblock %}
+{% block content %}
+
+        <h1>You finished Part 1!</h1>
+        <br>
+        <h4>Now we're going to begin Part 2, and you'll be done.</h4>
+        <br>
+        <br>
+        <h5>Press next when you're ready!</h5>
+        <p><a href="{{ url_for('SpAb_bp.instrctn') }}"><button class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom">Next</button></a></p>
+
+        <div class="w3-container center" style="margin-bottom: 15px">
+            <ol class="progress-bar">
+                <li class="is-complete"><span>Intro</span></li>
+                <li class="is-complete"><span>Part 1 Example</span></li>
+                <li class="is-complete"><span>Part 1</span></li>
+                <li class="is-complete"><span>Part 1</span></li>
+                <li class="is-complete"><span>Part 1</span></li>
+                <li class="is-active"><span>Part 2 Instructions</span></li>
+                <li><span>Part 2</span></li>
+                <li><span>Last Question</span></li>
+                <li><span>End</span></li>
+            </ol>
+        </div>
+        
+
+
+{% endblock %}

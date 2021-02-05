@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block title %}
+PODS KCL Survey
+{% endblock %}
+{% block content %}
+
+
+        <h1>What do you recall?</h1>
+        <h4 style="margin: 2em">Grab the top of the bar with the red indicator arrow and drag it to where you remember it being in the 
+                chart you just saw!
+                 <br>
+                Try to place the bar where you remember it being, but feel free to skip to the next question if you can't 
+                remember the position very well. 
+                <br>
+                Click Next when you're done guessing!
+        </h4>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/BG.js')}}"></script>
+        <div class="box center w3-margin-top w3-margin-bottom"><h5>Distractor Task will take place here</h5></div>
+        <p id="next_btn"><a href="{{ url_for('training_bp.trans') }}"><button class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom">Next</button></a></p>
+<!--
+<script>
+        //$(document).ready(function() {
+        
+        var $button= $("#next_btn").hide(),
+            $cbs = $('input[type="brush"]').click(function() {
+                $button.show();
+            });
+
+            $cbs.trigger("click");
+    
+   // });
+    </script> -->
+
+        <div class="w3-container center" style="margin-bottom: 15px">
+                <ol class="progress-bar">
+                    <li class="is-complete"><span>Intro</span></li>
+                    <li class="is-active"><span>Part 1 Example</span></li>
+                    <li><span>Part 1</span></li>
+                    <li><span>Part 1</span></li>
+                    <li><span>Part 1</span></li>
+                    <li><span>Part 2 Instructions</span></li>
+                    <li><span>Part 2</span></li>
+                    <li><span>Last Question</span></li>
+                    <li><span>End</span></li>
+                </ol>
+        </div>
+
+{% endblock %}

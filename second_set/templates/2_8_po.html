@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+PODS KCL Survey
+{% endblock %}
+{% block content %}
+
+
+        <h1>Question 4</h1>
+        <h4>Please click next when you're ready</h4>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/Eight/2_8_po.js')}}"></script>
+        <div class="box center w3-margin-top w3-margin-bottom"><h5>Distractor Task will take place here</h5></div>
+        <p><a href="{{ url_for('second_set_bp.bt1') }}"><button class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom">Next</button></a></p>
+
+        <div class="w3-container center" style="margin-bottom: 15px">
+            <ol class="progress-bar">
+                <li class="is-complete"><span>Intro</span></li>
+                <li class="is-complete"><span>Part 1 Example</span></li>
+                <li class="is-complete"><span>Part 1</span></li>
+                <li class="is-active"><span>Part 1</span></li>
+                <li><span>Part 1</span></li>
+                <li><span>Part 2 Instructions</span></li>
+                <li><span>Part 2</span></li>
+                <li><span>Last Question</span></li>
+                <li><span>End</span></li>
+            </ol>
+        </div>
+
+
+{% endblock %}

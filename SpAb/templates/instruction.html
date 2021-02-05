@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block title %}
+PODS KCL Survey
+{% endblock %}
+{% block content %}
+
+        <h1>A whole new game!</h1>
+                <br>
+        <h4 style="margin-left: 5em; margin-right: 5em;">Now we're going to play a quick multiple choice paper folding game. In this game, you are going to imagine a piece of paper
+                being folded, hole punched, and unfolded. 
+                There are figures drawn above a horizontal line and some beneath. The figures above show a square paper
+                being folded, and the last of these has one or two small circles drawn to show where the paper has been punched. 
+                Each hole is punched all the way through the thicknesses of the paper.
+                One of the five figures below the line shows where the holes will be when the paper is 
+                completely unfolded. You are to pick which one of these figures is correct and click on that figure. 
+                <br>
+                <br>
+                Try the example below - in this one, only one hole was punched through the folded paper.
+                In all the questions the folds are made above the line and the paper is not moved in 
+                any other way. Remember, the answer is the figure that shows where the holes will be
+                when the paper is unfolded. 
+                <br>
+                <br>
+                It's better to take your time and be sure of your answer before moving on. You'll play the game
+                for only three minutes! 
+        </h4>
+        <div class="w3-container">
+                <input type="image" src="{{ url_for('static', filename='img/SpAb_Assess/Train/q.PNG')}}" width="35%" style="pointer-events: none; margin-top: 2em"/>
+                <hr style="border: 2px solid black; width: 50%; margin: auto; margin-bottom: 2em; margin-top: 2em" >
+             <div class="row" style="margin: auto">
+                 <fieldset>
+                     <div class="column">
+                         <input type="radio" name="paper" class="sr-only" id="A">
+                         <label for="A">
+                             <img src="{{ url_for('static', filename='img/SpAb_Assess/Train/A.PNG')}}" style="max-width: 100%" alt="A">
+                         </label></div>
+                     <div class ="column">
+                         <input type="radio" name="paper" class="sr-only" id="B">
+                         <label for="B">
+                             <img src="{{ url_for('static', filename='img/SpAb_Assess/Train/B.PNG')}}" style="max-width: 100%" alt="B">
+                         </label></div>
+                     <div class ="column">
+                         <input type="radio" name="paper" class="sr-only" id="C">
+                         <label for="C">
+                             <img src="{{ url_for('static', filename='img/SpAb_Assess/Train/C.PNG')}}" style="max-width: 100%" alt="C">
+                         </label></div>
+                     <div class ="column">
+                         <input type="radio" name="paper" class="sr-only" id="D">
+                         <label for="D">
+                             <img src="{{ url_for('static', filename='img/SpAb_Assess/Train/D.PNG')}}" style="max-width: 100%" alt="D">
+                         </label></div>
+                     <div class ="column">
+                         <input type="radio" name="paper" class="sr-only" id="E">
+                         <label for="E">
+                             <img src="{{ url_for('static', filename='img/SpAb_Assess/Train/E.PNG')}}" style="max-width: 100%" alt="E">
+                         </label></div>
+     
+                 </fieldset>
+             </div>
+            </div>
+            
+            <br>
+        <h4 style="margin-left: 5em; margin-right: 5em;"> The correct answer above is the third paper. Please select the third
+                piece of paper here.
+                <br>
+                <br>
+                After you've selected the one you think is right, click Next to record your answer and move to 
+                the next question. </h4>
+               <h4 style="color: red;"> When you're ready to begin the game, press next!</h4>
+                <br>
+        <p><a href="{{ url_for('SpAb_bp.Qs') }}"><button class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom">Next</button></a></p>
+
+        <div class="w3-container center" style="margin-bottom: 15px">
+            <ol class="progress-bar">
+                <li class="is-complete"><span>Intro</span></li>
+                <li class="is-complete"><span>Part 1 Example</span></li>
+                <li class="is-complete"><span>Part 1</span></li>
+                <li class="is-complete"><span>Part 1</span></li>
+                <li class="is-complete"><span>Part 1</span></li>
+                <li class="is-active"><span>Part 2 Instructions</span></li>
+                <li><span>Part 2</span></li>
+                <li><span>Last Question</span></li>
+                <li><span>End</span></li>
+            </ol>
+        </div>
+
+
+{% endblock %}

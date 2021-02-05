@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block title %}
+PODS KCL Survey
+{% endblock %}
+{% block content %}
+
+
+        <h1>You're all done!</h1>
+        <h4>Thank you for participating in the study</h4>
+        <br>
+
+        <h5>You did a great job! Below are your results:
+                <br> You were --% accurate in your guesses of the bar chart
+                <br> distractor task feedback
+                <br> You got -- questions correct in the paper folding game
+        </h5>
+
+        <h4 style="margin-left: 5em; margin-right: 5em;">If you're willing to be contacted for future studies similar to this one,
+                please write your email address below. Your data will not be tied to your email in any way.
+        </h4>
+
+        <div class="bootstrap-iso">
+                <div class="container-fluid">
+                 <div class="center">
+                   <form method="post">
+                    <div class="form-group ">
+                     <label class="control-label " for="email" style="pointer-events: none;">
+                      Email
+                     </label>
+                     <input class="form-control" id="email" name="email" type="text"/>
+                    </div>
+                   </form>
+                 </div>
+                </div>
+               </div>
+
+               <p><button id="SubmitBtn" class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom" onclick="myFunction()">Submit</button></p>
+
+               <script>
+                       function myFunction(){
+                                //var xhttp = new XMLHttpRequest();     
+
+                                // xhttp.onreadystatechange = function(){
+                                //        if (this.readyState == 4 && this.status == 200) {
+                                        document.getElementById("SubmitBtn").innerHTML = "Thank you! We will contact you for future studies!";
+                               // }
+                               // }  
+                                
+                                //update database
+                                
+                               // xhttp.open("POST", "/getemail", true);
+                                //xhttp.send();
+                       }
+               </script>
+
+
+       <br>
+
+       <div class="w3-container center" style="margin-bottom: 15px">
+        <ol class="progress-bar">
+            <li class="is-complete"><span>Intro</span></li>
+            <li class="is-complete"><span>Part 1 Example</span></li>
+            <li class="is-complete"><span>Part 1</span></li>
+            <li class="is-complete"><span>Part 1</span></li>
+            <li class="is-complete"><span>Part 1</span></li>
+            <li class="is-complete"><span>Part 2 Instructions</span></li>
+            <li class="is-complete"><span>Part 2</span></li>
+            <li class="is-complete"><span>Last Question</span></li>
+            <li class="is-active"><span>End</span></li>
+        </ol>
+    </div>
+    
+{% endblock %}
