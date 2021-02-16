@@ -1,20 +1,4 @@
-var data = [{index: 0, value: 8},
-    {index: 1, value: 7.8},
-    {index: 2, value: 7.2},
-    {index: 3, value: 6.3},
-    {index: 4, value: 5.2},
-    {index: 5, value: 4.1},
-    {index: 6, value: 3.1},
-    {index: 7, value: 2.4},
-    {index: 8, value: 2},
-    {index: 9, value: 2.1},
-    {index: 10, value: 2.6},
-    {index: 11, value: 3.4},
-    {index: 12, value: 4.4},
-    {index: 13, value: 5.6},
-    {index: 14, value: 6.6},
-    {index: 15, value: 7.4}
-];
+
 
 //--------------- VERTICAL --------------------
 
@@ -22,6 +6,8 @@ var margin = {top: 20, right: 40, bottom: 20, left: 40},
     widthY = 700 - margin.left - margin.right,
     heightY = 500 - margin.top - margin.bottom,
     delim = 10;
+
+var stimulusclicks = 0;
 
 var maxy = d3.max(data, function(d) { return d.value; });
 
@@ -36,8 +22,14 @@ var x = d3.scaleLinear()
 var svgY = d3.select('#mycard')
     .append("svg")
     .attr("width", widthY +10)
-    .attr("height", heightY +10)
+    .attr("height", heightY +40)
     .append('g');
+
+/*svgY
+    .on("end", function(){
+        stimulusclicks++
+    })*/
+
 
 svgY
     .append('rect')
@@ -47,6 +39,47 @@ svgY
     .style('fill', 'white')
     .attr('width', widthY+5)
     .attr('height', heightY+5);
+
+
+// Arrows
+svgY
+.append('defs').append("marker")
+.attr("id", "arrow")
+.attr("refX", 6)
+.attr("refY", 6)
+.attr("markerWidth", 30)
+.attr("markerHeight", 30)
+//.attr("markerUnits","userSpaceonUse")
+.attr("orient", "auto")
+.append("path")
+.attr("class", "marker")
+.attr("d", "M 0 0 12 6 0 12 3 6")
+.style("fill", "red");
+
+//filter to only 0.5 values
+arrowData = data.filter(x=>(x.value==0.5 || x.value==0.2))
+//loop through each one
+for (i=0; i<arrowData.length; i++)
+{
+//get the width of the entire svg
+width = d3.select("#mycard").select("svg").attr("width")
+//width/datalength*index is the left side
+arrowXLeft = width/data.length*arrowData[i]['index'];
+//add in half the width of one bar. don't forget delimeter
+arrowX = arrowXLeft + (width/data.length - delim)/2
+
+//use our calculated arrowX to draw
+svgY
+    .append("line")
+    .attr("x1", arrowX)
+    .attr("x2", arrowX)
+    .attr("y1", 500) //I'm assuming Y is the same for all
+    .attr("y2", 472)
+    .attr("stroke-width", 1.6)
+    .attr("stroke","red")
+    .attr("marker-end", "url(#arrow)");
+}
+
 
 // Moveable barChart
 
@@ -75,7 +108,9 @@ function brushendY(){
         svgbrushY
             .call(brushY.move, function (d){
                 return [d.value, 0].map(scaleY);})
-    };
+    
+            }
+    stimulusclicks++;
 }
 
 function brushmoveY() {
@@ -101,3 +136,5 @@ function update(){
         .attr('y', function (d){return scaleY(d.value) + 25;})
         .text(function (d) {return d3.format('.2')(d.value);});
 }
+
+var StartTime = Date.now()

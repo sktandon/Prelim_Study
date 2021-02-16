@@ -2,21 +2,32 @@
 {% block title %}
 PODS KCL Survey
 {% endblock %}
+{% block bodyattributes%}
+onload = start();
+{% endblock %}
+
 {% block content %}
 
 <h1>Now we'll ask you to play the game for a bit</h1>
 <h4>We'll show you the next graph soon</h4>
-<div class="box center w3-margin-top w3-margin-bottom"><h5>Distractor Task will take place here</h5></div>
+
+<div>
+    <canvas id='canvas' width="400" height="200" style='outline: 1.5px black solid; margin-bottom: 1em;'></canvas>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/game.js')}}"></script>
+
+  </div>
+
+
 <!--<p><a href="{{ url_for('training_bp.BG') }}"><button class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom">Next</button></a></p>-->
 
 <script>
     setTimeout(function(){
         window.location.href = "{{ url_for('training_bp.BG') }}";
-    }, 10000);
+    }, 4000);
 </script>
 
 <div class="w3-container center" style="margin-bottom: 15px">
-    <ol class="progress-bar">
+    <ol class="custom-progress-bar">
         <li class="is-complete"><span>Intro</span></li>
         <li class="is-active"><span>Part 1 Example</span></li>
         <li><span>Part 1</span></li>

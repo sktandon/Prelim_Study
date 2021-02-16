@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}
+PODS KCL Survey
+{% endblock %}
+{% block bodyattributes%}
+onload = start();
+{% endblock %}
+
+{% block content %}
+
+<div id="noteDisplay">    
+    <script type="text/javascript" src="{{ url_for('static', filename='js/Next_Chart_Note.js')}}"></script>
+ </div>
+ <br>
+<h3>Play the game for a bit</h3>
+<h4>We'll show you the next graph soon</h4>
+
+<div>
+    <canvas id='canvas' width="400" height="200" style='outline: 1.5px black solid; margin-bottom: 1em; margin-top: 1em;'></canvas>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/game.js')}}"></script>
+
+  </div>
+
+
+<script>
+    setTimeout(function(){
+        window.location.href = "{{(nextpage)}}"; 
+    }, 20000)
+</script>
+
+<div class="w3-container center" style="margin-bottom: 15px">
+    <ol class="custom-progress-bar">
+        <li {% if progressNum == 1 %} class="is-active" {% elif progressNum > 1 %} class="is-complete" {%endif%}><span>Intro</span></li>
+        <li {% if progressNum == 2 %} class="is-active" {% elif progressNum > 2 %} class="is-complete" {%endif%}><span>Part 1 Example</span></li>
+        <li {% if progressNum == 3 %} class="is-active" {% elif progressNum > 3 %} class="is-complete" {%endif%}><span>Part 1</span></li>
+        <li {% if progressNum == 4 %} class="is-active" {% elif progressNum > 4 %} class="is-complete" {%endif%}><span>Part 1 </span></li>
+        <li {% if progressNum == 5 %} class="is-active" {% elif progressNum > 5 %} class="is-complete" {%endif%}><span>Part 1</span></li>
+        <li {% if progressNum == 6 %} class="is-active" {% elif progressNum > 6 %} class="is-complete" {%endif%}><span>Part 2 Instructions</span></li>
+        <li {% if progressNum == 7 %} class="is-active" {% elif progressNum > 7 %} class="is-complete" {%endif%}><span>Part 2</span></li>
+        <li {% if progressNum == 8 %} class="is-active" {% elif progressNum > 8 %} class="is-complete" {%endif%}><span>Last Question</span></li>
+        <li {% if progressNum == 9 %} class="is-active" {% elif progressNum > 9 %} class="is-complete" {%endif%}><span>End</span></li>
+    </ol>
+</div>
+
+
+{% endblock %}

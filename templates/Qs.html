@@ -526,7 +526,7 @@ PODS KCL Survey
          </div>
         </div>
             <h4>Press Next after you've selected your guess!</h4>
-            <p><a href="{{ url_for('SpAb_bp.done') }}"><button id="btn10" class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom">Next</button></a></p>
+            <p><a href="{{ url_for('quest') }}"><button id="btn10" class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom">Next</button></a></p>
 
             <script>
                 $(document).ready(function() {
@@ -545,7 +545,7 @@ PODS KCL Survey
 
 
         <div class="w3-container center" style="margin-bottom: 15px">
-            <ol class="progress-bar">
+            <ol class="custom-progress-bar">
                 <li class="is-complete"><span>Intro</span></li>
                 <li class="is-complete"><span>Part 1 Example</span></li>
                 <li class="is-complete"><span>Part 1</span></li>
@@ -560,7 +560,7 @@ PODS KCL Survey
 
         <script>
             setTimeout(function(){
-                window.location.href = "{{ url_for('SpAb_bp.done') }}";
+                window.location.href = "{{ url_for('quest') }}";
             }, 3*60*1000);
         </script>
 

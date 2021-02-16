@@ -2,12 +2,17 @@
 {% block title %}
 PODS KCL Survey
 {% endblock %}
+{% block bodyattributes%}
+onload = start();
+{% endblock %}
+
 {% block content %}
 
 
         <h1>Let's try this out</h1>
         <h4 style="margin-right: 5em; margin-left: 5em; margin-top: 2em; margin-bottom: 2em;">
-                On each page you'll see this game at the bottom of the screen. In this game you'll -xx. 
+                On each page you'll see this game at the bottom of the screen. In this game you'll click the indicated number
+                as it floats across the screen. Watch out - the number will keep changing throughout the questions! 
                 <br>
                 You'll be playing this game on every page - your first priority should be to look at and interact with the graphs 
                 you see on each page. Your second priority
@@ -17,51 +22,18 @@ PODS KCL Survey
 
       <br>
 
-      <div class="box center w3-margin-top w3-margin-bottom"><h5>Distractor Task will take place here</h5></div>
+      <div>
+        <canvas id='canvas' width="400" height="200" style='outline: 1.5px black solid; margin-bottom: 1em;'></canvas>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/game.js')}}"></script>
 
+      </div>
 
-
- <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <marquee id="marquee" behavior="scroll" scrollamount="10">Hello</marquee>
-      <marquee id="marquee2" behavior="scroll" direction="up" scrollamount="1">Hello2</marquee>
-      <button id="btnRight">Right</button>
-      <button id="btnLeft">Left</button>
-      <button id="btnStart">Start</button>
-      <button id="btnStop">Stop</button>
-      <button id="btnFast">Fast</button>
-      <button id="btnSlow">Slow</button>
-
-      <script>
-        let marquee=document.getElementById('marquee');
-      $('#btnRight').click(function(){
-          marquee.setAttribute('direction','right');
-          marquee.start();
-      });
-      $('#btnLeft').click(function(){
-         marquee.setAttribute('direction','left');
-         marquee.start();
-      });
-      $('#btnStop').click(function(){
-         marquee.stop();
-      });
-      $('#btnStart').click(function(){
-         marquee.start();
-      });
-      $('#btnFast').click(function(){
-        marquee.setAttribute('scrollamount',30);
-        marquee.start();
-      });
-      $('#btnSlow').click(function(){
-        marquee.setAttribute('scrollamount',2);
-        marquee.start();
-      });
-</script>-->   
 
         <p><a href="{{ url_for('training_bp.BC') }}"><button class="w3-button w3-blue-gray w3-round-xlarge w3-margin-bottom">Next</button></a></p>
 
         
         <div class="w3-container center" style="margin-bottom: 15px">
-                <ol class="progress-bar">
+                <ol class="custom-progress-bar">
                     <li class="is-active"><span>Intro</span></li>
                     <li><span>Part 1 Example</span></li>
                     <li><span>Part 1</span></li>
